@@ -57,13 +57,106 @@ function classes(){
             super(2,2)
         }
     }
+    let change
+    let random
+    class MultiMidia extends Carro{
+        constructor(){
+            super(2,2)
+            
+            this.musicas = ["Ballin",
+            "Praise the Lord (Da Shine)",
+            "Rockstar",
+            "SICKO MODE",
+            "In My Feelings",
+            "Circles",
+            "Goosebumps",
+            "Hotline Bling",
+            "L$D",
+            "God's Plan",
+            "F**kin' Problems",
+            "Nonstop",
+            "White Iverson",
+            "One Dance",
+            "Antidote",
+            "Goldie",
+            "Butterfly Effect",
+            "Congratulations",
+            "Sunflower",
+            "Stargazing",
+            "Late at Night",
+            "Down Below",
+            "High Fashion",
+            "Everyday"
+          ]
 
-    let c1 = new CarroCombate(100)
-    let c2 = new CarroTransporte()
+              
 
-    c1.setLigado = true
-    c1.info()
-} 
+    
+    
+        }
+        mostrar(){
+            for(let i =0; i< this.musicas.length; i++){
+                console.log(`${i} - ${this.musicas[i]}`)
+            }
+            
+        }
+        escolher(escolha){
+           if(this.musicas.indexOf(escolha) > -1){
+            this.escolher = escolha
+           }
+           else{
+            this.escolher ='musica nao esta catalogada'
+           }   
+        }
+        proxima(){
+           change =  (this.musicas.indexOf(this.escolher))+ 1
+           this.escolher = this.musicas[change] 
+        }
+        anterior(){
+            change =  (this.musicas.indexOf(this.escolher)) - 1
+           this.escolher = this.musicas[change] 
+        }
+        aleatorio(){
+            random = this.musicas[Math.random() * this.musicas.length | 0]
+            this.escolher = random
+        }   
+
+        ligardesligar(g){
+            this.lig = g
+        }
+        info(){
+            super.info
+            console.log(`Musica atual: ${this.escolher}`)
+            if(this.lig == 0){
+                console.log("Ligado")
+            }
+            else if(this.lig == 1){
+                console.log("Desligado")
+            }
+            }
+        }
+        let multimidia = new MultiMidia()
+        multimidia.escolher("Rockstar")
+        multimidia.ligardesligar(0)
+        multimidia.aleatorio()
+        multimidia.info()
+
+        
+        let c1 = new CarroCombate(100)
+        
+    
+        c1.setLigado = true
+        c1.info()
+
+        
+          
+
+}
+    
+
+    
+
+
 
 function outrovideo(){
     class Person{
@@ -107,3 +200,5 @@ function outrovideo(){
     let bert = new Developer('Bert', 'CSS')
     console.log(bert.code())
 }
+
+
